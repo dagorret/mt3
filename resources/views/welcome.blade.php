@@ -31,7 +31,7 @@
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Administración Académica</h1>
 	                        <p class="hero-paragraph">El futuro está aquí</p>
-	                        <div class="hero-cta"><a class="button button-primary" href="#">Ingresar</a></div>
+	                        <div class="hero-cta"><a class="button button-primary" href="home">Ingresar</a></div>
 						</div>
 						<div class="hero-figure anime-element">
 							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
