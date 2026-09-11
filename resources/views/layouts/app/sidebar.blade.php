@@ -10,24 +10,44 @@
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
 
+            <!-- Menú Principal con Componentes Blade limpios -->
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                <div class="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    {{ __('Gestión Académica') }}
+                </div>
+
+                <nav class="flex flex-col gap-1 mt-1">
+                    <x-menu-item :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </flux:sidebar.item>
-                </flux:sidebar.group>
+                    </x-menu-item>
+
+                    <x-menu-item href="#" :active="request()->routeIs('estudiantes.*')">
+                        {{ __('Estudiantes') }}
+                    </x-menu-item>
+
+                    <x-menu-item href="#" :active="request()->routeIs('materias.*')">
+                        {{ __('Materias') }}
+                    </x-menu-item>
+
+                    <x-menu-item href="#" :active="request()->routeIs('profesores.*')">
+                        {{ __('Profesores') }}
+                    </x-menu-item>
+                </nav>
             </flux:sidebar.nav>
 
             <flux:spacer />
 
+            <!-- Enlaces Secundarios -->
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
+                <nav class="flex flex-col gap-1">
+                    <x-menu-item href="https://github.com/laravel/livewire-starter-kit">
+                        {{ __('Repository') }}
+                    </x-menu-item>
 
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
+                    <x-menu-item href="https://laravel.com/docs/starter-kits#livewire">
+                        {{ __('Documentation') }}
+                    </x-menu-item>
+                </nav>
             </flux:sidebar.nav>
 
             <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
