@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Propuesta Identidad Visual — MT3</title>
+<style>
+    @page { size: A4; margin: 0; }
+    body {
+        margin: 0;
+        padding: 40px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+    }
+    .header {
+        border-bottom: 2px solid #334155;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    .title { font-size: 24px; font-weight: 800; color: #38bdf8; margin: 0 0 8px 0; }
+    .subtitle { font-size: 14px; color: #94a3b8; margin: 0; }
+    .card {
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+    .card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-top: 0;
+        margin-bottom: 16px;
+        border-left: 4px solid #38bdf8;
+        padding-left: 10px;
+    }
+    .svg-container {
+        background-color: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .code-block {
+        background-color: #090d16;
+        border: 1px solid #1e293b;
+        border-radius: 6px;
+        padding: 14px;
+        font-family: monospace;
+        font-size: 11px;
+        color: #38bdf8;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    .prompt-box {
+        background-color: rgba(2, 132, 199, 0.1);
+        border: 1px solid rgba(2, 132, 199, 0.3);
+        border-radius: 8px;
+        padding: 16px;
+        color: #e0f2fe;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1 class="title">Propuesta de Identidad Visual — Proyecto MT3</h1>
+    <p class="subtitle">Componente SVG para Jetstream / Vue 3 y Prompt de Diseño</p>
+</div>
+
+<div class="card">
+    <h2 class="card-title">Opción Integrada: Isotipo Tecnológico MT³</h2>
+    <div class="svg-container">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="mt3Grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="100%" stop-color="#6366f1" />
+                </linearGradient>
+                <linearGradient id="mt3Grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#818cf8" />
+                    <stop offset="100%" stop-color="#4f46e5" />
+                </linearGradient>
+            </defs>
+            <rect width="120" height="120" rx="28" fill="#1e293b"/>
+            <path d="M 28 82 V 42 L 46 62 L 64 42 V 82" stroke="url(#mt3Grad1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 52 42 H 76 M 64 42 V 82" stroke="#f8fafc" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+            <path d="M 82 34 C 82 30 88 30 88 34 C 88 38 82 40 88 42 C 88 46 82 46 82 42" stroke="url(#mt3Grad2)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="88" cy="30" r="2.5" fill="#38bdf8"/>
+        </svg>
+    </div>
+
+    <p style="font-size:12px; color:#cbd5e1;"><strong>Código para ApplicationMark.vue:</strong></p>
+    <div class="code-block">&lt;template&gt;
+    &lt;svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-full shrink-0"&gt;
+        &lt;defs&gt;
+            &lt;linearGradient id="mt3Grad1" x1="0%" y1="0%" x2="100%" y2="100%"&gt;
+                &lt;stop offset="0%" stop-color="#38BDF8" /&gt;
+                &lt;stop offset="100%" stop-color="#6366F1" /&gt;
+            &lt;/linearGradient&gt;
+            &lt;linearGradient id="mt3Grad2" x1="0%" y1="0%" x2="100%" y2="100%"&gt;
+                &lt;stop offset="0%" stop-color="#818CF8" /&gt;
+                &lt;stop offset="100%" stop-color="#4F46E5" /&gt;
+            &lt;/linearGradient&gt;
+        &lt;/defs&gt;
+        &lt;rect width="120" height="120" rx="28" fill="#1E293B"/&gt;
+        &lt;path d="M 28 82 V 42 L 46 62 L 64 42 V 82" stroke="url(#mt3Grad1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/&gt;
+        &lt;path d="M 52 42 H 76 M 64 42 V 82" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round" opacity="0.9"/&gt;
+        &lt;path d="M 82 34 C 82 30 88 30 88 34 C 88 38 82 40 88 42 C 88 46 82 46 82 42" stroke="url(#mt3Grad2)" stroke-width="3.5" stroke-linecap="round" fill="none"/&gt;
+        &lt;circle cx="88" cy="30" r="2.5" fill="#38BDF8"/&gt;
+    &lt;/svg&gt;
+&lt;/template&gt;</div>
+</div>
+
+<div class="card">
+    <h2 class="card-title">Prompt para Generar Variantes</h2>
+    <div class="prompt-box">
+        "Necesito el código SVG para un isotipo técnico de una aplicación web llamada <strong>MT3</strong> (donde 'M' y 'T' están entrelazadas y el '3' actúa como superíndice MT³). Estilo minimalista, moderno e isométrico. Usar viewBox de 0 0 100 100, gradientes CSS en tonos azul eléctrico (#38bdf8) e índigo (#6366f1). Apto para incrustar en Vue/Tailwind (`ApplicationMark.vue`). Dame ÚNICAMENTE el código SVG válido."
+    </div>
+</div>
+
+</body>
+</html>
