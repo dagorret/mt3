@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -45,5 +46,17 @@ class User extends Authenticatable
     public function persona(): HasOne
     {
         return $this->hasOne(Persona::class, 'user_id');
+    }
+
+    /**
+     * Obtiene las iniciales del usuario para los avatares de Flux UI.
+     */
+    public function initials(): string
+    {
+        return Str::of($this->name)
+            ->explode(' ')
+            ->map(fn (string $segment) => Str::of($segment)->substr(0, 1)->upper())
+            ->take(2)
+            ->implode('');
     }
 }
