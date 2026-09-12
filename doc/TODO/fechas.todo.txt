@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Livewire\Prueba;
+
+use Livewire\Component;
+
+new class extends Component {
+    public $hora_simple = '';
+    public $fecha_simple = '';
+    public $datetime_simple = '';
+    public $fecha_desde = '';
+    public $fecha_hasta = '';
+    public $datetime_desde = '';
+    public $datetime_hasta = '';
+
+    public function render()
+    {
+        return view('livewire.prueba.fechas');
+    }
+}; ?>
+
+<div class="max-w-4xl mx-auto p-6 space-y-8">
+    <div class="border-b pb-4">
+        <h1 class="text-2xl font-bold tracking-tight">Laboratorio de Componentes UI</h1>
+        <p class="text-sm text-gray-500">Prueba de controles nativos HTML5 con Livewire y Flux UI.</p>
+    </div>
+
+    <!-- Sección 1: Inputs Individuales -->
+    <div class="space-y-4">
+        <h2 class="text-lg font-semibold">1. Selectores Individuales</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <x-ui.select-time 
+                wire:model.live="hora_simple" 
+                label="Hora (SelectTime)" 
+            />
+
+            <x-ui.select-date 
+                wire:model.live="fecha_simple" 
+                label="Fecha (SelectDate)" 
+            />
+
+            <x-ui.select-date-time 
+                wire:model.live="datetime_simple" 
+                label="Fecha y Hora (SelectDateTime)" 
+            />
+        </div>
+    </div>
+
+    <hr class="border-gray-200">
+
+    <!-- Sección 2: Rangos de Fechas -->
+    <div class="space-y-4">
+        <h2 class="text-lg font-semibold">2. Rangos de Selección</h2>
+        
+        <div class="p-4 bg-gray-50 rounded-lg space-y-2">
+            <h3 class="text-sm font-medium text-gray-700">Rango de Fechas (SelectDateBetween)</h3>
+            <x-ui.select-date-between 
+                model-from="fecha_desde" 
+                model-to="fecha_hasta" 
+                label-from="Desde (Día)" 
+                label-to="Hasta (Día)" 
+            />
+        </div>
+
+        <div class="p-4 bg-gray-50 rounded-lg space-y-2">
+            <h3 class="text-sm font-medium text-gray-700">Rango de Fecha y Hora (SelectDateTimeBetween)</h3>
+            <x-ui.select-date-time-between 
+                model-from="datetime_desde" 
+                model-to="datetime_hasta" 
+                label-from="Desde (Fecha/Hora)" 
+                label-to="Hasta (Fecha/Hora)" 
+            />
+        </div>
+    </div>
+
+    <hr class="border-gray-200">
+
+    <!-- Sección 3: Inspección de Estado en Tiempo Real -->
+    <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-xs space-y-1">
+        <p class="text-gray-400 border-b border-gray-800 pb-1 font-bold">// Estado de Livewire (Reactividad):</p>
+        <p>hora_simple: "{{ $hora_simple }}"</p>
+        <p>fecha_simple: "{{ $fecha_simple }}"</p>
+        <p>datetime_simple: "{{ $datetime_simple }}"</p>
+        <p>rango_fecha: ["{{ $fecha_desde }}", "{{ $fecha_hasta }}"]</p>
+        <p>rango_datetime: ["{{ $datetime_desde }}", "{{ $datetime_hasta }}"]</p>
+    </div>
+</div>
