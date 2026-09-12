@@ -28,7 +28,7 @@ class IndexUnidad extends Component
     {
         $unidades = Unidad::query()
             ->when($this->search, fn ($q) => $q->where('nombre', 'like', "%{$this->search}%")
-                ->orWhere('codigo', 'like', "%{$this->search}%"))
+                ->orWhere('sigla', 'like', "%{$this->search}%"))
             ->latest()
             ->paginate(10);
 
