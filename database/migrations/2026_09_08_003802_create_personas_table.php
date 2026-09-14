@@ -10,26 +10,34 @@ return new class extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('unidad_id')->nullable()->constrained('unidades')->nullOnDelete();
             
+            // Relación 1:1 estricta con Users (Opcional)
+            $table->foreignId('user_id')
+                ->nullable()
+                ->unique()
+                ->constrained('users')
+                ->nullOnDelete();
+
+            // Relación con Unidad
+            $table->foreignId('unidad_id')
+                ->constrained('unidades')
+                ->cascadeOnDelete();
+
             $table->string('nombre');
             $table->string('apellido');
             $table->string('email')->unique();
-            $table->string('legajo', 30)->nullable()->unique();
-            $table->string('sexo', 10)->nullable(); // Cambiado para mayor compatibilidad con SQLite
+            $table->string('legajo')->nullable()->unique();
+            $table->enum('sexo', ['M', 'F', 'X'])->nullable();
             $table->unsignedSmallInteger('ano_nacimiento')->nullable();
-            
-            $table->string('movil', 50)->nullable();
-            $table->string('interno', 20)->nullable();
-            $table->string('oficina', 100)->nullable();
+            $table->string('movil')->nullable();
+            $table->string('interno')->nullable();
+            $table->string('oficina')->nullable();
             $table->string('domicilio')->nullable();
-
             $table->string('cargo')->nullable();
             $table->string('titulo')->nullable();
             $table->unsignedSmallInteger('ano_ingreso')->nullable();
-            
             $table->boolean('activo')->default(true);
+
             $table->timestamps();
         });
     }

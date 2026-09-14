@@ -59,4 +59,10 @@ class User extends Authenticatable
             ->take(2)
             ->implode('');
     }
+
+    // Helper para obtener el nombre real preferido
+    public function getDisplayNameAttribute(): string
+    {
+        return $this->persona ? $this->persona->nombre_completo : $this->name;
+    }
 }

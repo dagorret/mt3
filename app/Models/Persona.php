@@ -53,6 +53,11 @@ class Persona extends Model
         return $this->belongsTo(Unidad::class, 'unidad_id');
     }
 
+    public function hasAccount(): bool
+    {
+        return ! is_null($this->user_id);
+    }
+    
     /**
      * Accessor para obtener el nombre completo.
      */

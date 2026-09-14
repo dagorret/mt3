@@ -17,6 +17,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->whereNumber('unidad')
             ->name('editar');
     });
+
+    // Grupo de Personas (Rutas listas)
+    Route::prefix('personas')->name('personas.')->group(function () {
+        Route::view('/', 'dashboard')->name('index'); // Temporalmente apunta a dashboard
+    });
+
+    // Grupo de Usuarios (Rutas listas)
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::view('/', 'dashboard')->name('index'); // Temporalmente apunta a dashboard
+    });
 });
 
 require __DIR__.'/settings.php';

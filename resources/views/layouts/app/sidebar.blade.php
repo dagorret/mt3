@@ -21,17 +21,27 @@
                         {{ __('Dashboard') }}
                     </x-menu-item>
 
-                    <x-menu-item href="#" :active="request()->routeIs('estudiantes.*')">
-                        {{ __('Estudiantes') }}
-                    </x-menu-item>
+                   <!-- Submenú Colapsable: Bases -->
+                    <flux:navlist.group expandable heading="Bases" :expanded="request()->routeIs('unidades.*', 'personas.*')">
+                        <x-menu-item :href="route('unidades.index')" :active="request()->routeIs('unidades.*')">
+                            {{ __('Unidades') }}
+                        </x-menu-item>
 
-                    <x-menu-item href="#" :active="request()->routeIs('materias.*')">
-                        {{ __('Materias') }}
-                    </x-menu-item>
+                        <x-menu-item :href="route('personas.index')" :active="request()->routeIs('personas.*')">
+                            {{ __('Personas') }}
+                        </x-menu-item>
+                    </flux:navlist.group>
 
-                    <x-menu-item href="#" :active="request()->routeIs('profesores.*')">
-                        {{ __('Profesores') }}
-                    </x-menu-item>
+                    <!-- Submenú Colapsable: Acceso y Seguridad -->
+                    <flux:navlist.group expandable heading="Seguridad" :expanded="request()->routeIs('users.*', 'roles.*')">
+                        <x-menu-item :href="route('users.index')" :active="request()->routeIs('users.*')">
+                            {{ __('Usuarios') }}
+                        </x-menu-item>
+
+                        <x-menu-item href="#" :active="request()->routeIs('roles.*')">
+                            {{ __('Roles y Permisos') }}
+                        </x-menu-item>
+                    </flux:navlist.group>
                 </nav>
             </flux:sidebar.nav>
 
